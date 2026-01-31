@@ -4,5 +4,5 @@ public class SpawnController : MonoBehaviour
 {
     [SerializeField]
     SpawnPoint[] spawnPoints;
-    Enemy[] enemies;
+    EnemyData[] enemies;
 }

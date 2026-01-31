@@ -5,8 +5,8 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField]
     bool canMove = true;
 
-    void Spawn(GameObject enemyPrefab)
+    public EnemyData SpawnEnemy(EnemyData enemyPrefab)
     {
-        Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        return Instantiate(enemyPrefab, transform.position, Quaternion.identity);
     }
 }

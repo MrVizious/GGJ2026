@@ -1,8 +1,8 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Enemy", menuName = "Scriptable Objects/Enemy")]
-public class Enemy : ScriptableObject
+public class EnemyData : ScriptableObject
 {
     [SerializeField]
-    Sprite sprite;
+    public Sprite sprite;
 }
