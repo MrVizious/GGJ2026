@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Home_/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Home_/Scenes/FinalScenes/MainMenu.unity
+    guid: 594d3ee1b9866cf4faf91ff71faba36c
+  - enabled: 1
+    path: Assets/_Home_/Scenes/FinalScenes/CreditsMenu.unity
+    guid: 53e50145227d40e42a439ac89251888c
+  - enabled: 1
+    path: Assets/_Home_/Scenes/FinalScenes/ChapterSelection.unity
+    guid: e4bf745e37118e044875d3547477a8f5
+  - enabled: 1
+    path: Assets/_Home_/Scenes/FinalScenes/ComicConScene.unity
+    guid: e93d55349609e7446b2deebcf0f6f545
+  - enabled: 1
+    path: Assets/_Home_/Scenes/FinalScenes/FurryScene.unity
+    guid: 51396c3b90daa344bb0d710966305aef
+  - enabled: 1
+    path: Assets/_Home_/Scenes/FinalScenes/BDSMScene.unity
+    guid: 39cdc4672b8178143b6ac40cfcf89f30
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 7409d528c353de74dbcfeceea228825a, type: 3}
   m_UseUCBPForAssetBundles: 0
