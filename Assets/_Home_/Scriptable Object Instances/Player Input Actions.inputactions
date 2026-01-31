@@ -25,18 +25,9 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Interact P1",
+                    "name": "Interact",
                     "type": "Button",
                     "id": "091ad2c3-76df-44db-b729-5c0460f61ece",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Interact P2",
-                    "type": "Button",
-                    "id": "dfe998b0-fa70-4dc0-8084-f2149b40be98",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -157,77 +148,7 @@
                 {
                     "name": "",
                     "id": "623a3f6a-7788-4caa-b1d1-89cde27d9f1c",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact P1",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "16cc14a3-cb95-4f8d-9577-b2cdcb959135",
-                    "path": "<Keyboard>/enter",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Interact P2",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Controller",
-            "id": "8fc6b9ca-5c76-41e5-8520-60a0e56845dc",
-            "actions": [
-                {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "ea698e52-f087-4f55-96db-1f2886a7a5b6",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "838860c8-c45d-4507-9c2a-dfa1b5c725f8",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "5460c950-1b23-4434-a211-60f05c6cfc95",
-                    "path": "<Gamepad>/leftStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "77b73360-e95d-443e-8dca-d6b4e2736a08",
-                    "path": "<Gamepad>/dpad",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6139c7d9-78e5-4298-b90f-d773666fbdb7",
-                    "path": "<Gamepad>/buttonSouth",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -11,7 +11,6 @@ public class EnemyController : MonoBehaviour
     public float maxDistanceToRoam = 7f;
     public float maxSpeed = 4f;
     public LayerMask obstacleLayerMask = ~0;
-    private EnemyData enemyData;
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer spriteRenderer
     {
@@ -112,13 +111,9 @@ public class EnemyController : MonoBehaviour
         rb.MovePosition(targetPosition);
     }
 
-    public void SetEnemyData(EnemyData newEnemyData)
+    public void SetEnemySprite(Sprite sprite)
     {
-        enemyData = newEnemyData;
+        spriteRenderer.sprite = sprite;
     }
 
-    public void UpdateGraphics()
-    {
-        spriteRenderer.sprite = enemyData.sprite;
-    }
 }

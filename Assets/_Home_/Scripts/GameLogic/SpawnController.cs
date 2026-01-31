@@ -3,25 +3,33 @@ using System.Collections.Generic;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField]
-    public List<SpawnPoint> spawnPoints;
-    
-    [SerializeField]
-    public List<EnemyData> enemies;
-
-    public void SpawnEnemies(List<SpawnPoint> randomizedSpawnPoints, List<EnemyData> randomizedEnemyDatas)
+    private List<SpawnPoint> _spawnPoints;
+    private List<SpawnPoint> spawnPoints
     {
+        get
+        {
+            if (_spawnPoints == null) _spawnPoints = new List<SpawnPoint>(FindObjectsByType(typeof(SpawnPoint), FindObjectsInactive.Include, FindObjectsSortMode.None) as SpawnPoint[]);
+            return _spawnPoints;
+        }
+    }
+
+    [SerializeField]
+    public List<Sprite> enemySprites;
+
+    public void SpawnEnemies(List<SpawnPoint> randomizedSpawnPoints, List<Sprite> randomizedEnemySprites)
+    {
+        Debug.Log($"Randomized spawn points size: {randomizedSpawnPoints.Count}, randomized snemy sprites size: {randomizedEnemySprites.Count}", this);
         for (int i = 0; i < 3; i++)
         {
-            randomizedSpawnPoints[i].SpawnFriend(randomizedEnemyDatas[i], i);
+            randomizedSpawnPoints[i].SpawnFriend(randomizedEnemySprites[i], i);
         }
 
         for (int i = 3; i < randomizedSpawnPoints.Count; i++)
         {
-            randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemyDatas[i]);
+            randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemySprites[i]);
         }
     }
-    
+
     public List<SpawnPoint> GetSpawnPoints() => spawnPoints;
-    public List<EnemyData> GetEnemies() => enemies;
+    public List<Sprite> GetEnemySprites() => enemySprites;
 }
