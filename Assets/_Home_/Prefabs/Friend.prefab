@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1464307574294044888}
   - component: {fileID: 8089814348119458846}
   - component: {fileID: 3517034979787047247}
-  - component: {fileID: -5101566498980193131}
+  - component: {fileID: -2799722770407632143}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Enemy
+  m_Name: Friend
+  m_TagString: Friend
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,7 +97,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0.0836463, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.049066544, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -142,7 +142,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.2
---- !u!58 &-5101566498980193131
+--- !u!58 &-2799722770407632143
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
