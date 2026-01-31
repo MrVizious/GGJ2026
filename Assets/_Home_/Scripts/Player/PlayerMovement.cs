@@ -22,7 +22,6 @@ public class PlayerMovement : MonoBehaviour
     public void SetMovementVector(InputAction.CallbackContext context)
     {
         Vector2 newMovementVector = context.ReadValue<Vector2>().normalized;
-        Debug.Log($"New input for {name} is {newMovementVector}", this);
         movementVector = newMovementVector;
     }
 

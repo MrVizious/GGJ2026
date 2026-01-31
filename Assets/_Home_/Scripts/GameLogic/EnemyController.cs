@@ -74,7 +74,12 @@ public class EnemyController : MonoBehaviour
 
     private Vector2 ChooseNextTargetPosition()
     {
-        return GetValidPointInDirection(Random.insideUnitCircle, Random.Range(0.5f, maxDistanceToRoam));
+        Vector2 returnValue = new Vector2(-1, -1);
+        while (returnValue == new Vector2(-1, -1))
+        {
+            returnValue = GetValidPointInDirection(Random.insideUnitCircle, Random.Range(0.5f, maxDistanceToRoam));
+        }
+        return returnValue;
     }
 
     private Vector2 GetValidPointInDirection(Vector2 direction, float distance)
@@ -86,8 +91,7 @@ public class EnemyController : MonoBehaviour
             {
                 continue;
             }
-            distance = Mathf.Min(Mathf.Abs(hit.point.y - transform.position.y), distance);
-            break;
+            return new Vector2(-1, -1); // Invalid point,
         }
         distance = Mathf.Max(0, distance - 0.9f);
         return transform.position + (Vector3)direction * distance;
