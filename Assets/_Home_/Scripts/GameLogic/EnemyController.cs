@@ -33,14 +33,17 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        Loop().Forget();
+        Loop().AttachExternalCancellation(destroyCancellationToken).Forget();
     }
 
     private async UniTask Loop()
     {
         while (true)
         {
+            // Wait
             await WaitForRandomTime();
+
+            // Move
             Vector2 targetPosition = ChooseNextTargetPosition();
             CancellationTokenSource cts = new CancellationTokenSource();
             CancellationToken token = cts.Token;
