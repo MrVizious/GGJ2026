@@ -14,21 +14,21 @@ public class SpawnController : MonoBehaviour
     }
 
     [SerializeField]
-    public List<EnemyData> enemies;
+    public List<Sprite> enemySprites;
 
-    public void SpawnEnemies(List<SpawnPoint> randomizedSpawnPoints, List<EnemyData> randomizedEnemyDatas)
+    public void SpawnEnemies(List<SpawnPoint> randomizedSpawnPoints, List<Sprite> randomizedEnemySprites)
     {
         for (int i = 0; i < 3; i++)
         {
-            randomizedSpawnPoints[i].SpawnFriend(randomizedEnemyDatas[i], i);
+            randomizedSpawnPoints[i].SpawnFriend(randomizedEnemySprites[i], i);
         }
 
         for (int i = 3; i < randomizedSpawnPoints.Count; i++)
         {
-            randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemyDatas[i]);
+            randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemySprites[i]);
         }
     }
 
     public List<SpawnPoint> GetSpawnPoints() => spawnPoints;
-    public List<EnemyData> GetEnemies() => enemies;
+    public List<Sprite> GetEnemySprites() => enemySprites;
 }

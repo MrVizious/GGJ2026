@@ -10,21 +10,29 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite playerLeftCaught;
     [SerializeField] private Sprite playerRightCaught;
 
-    SpawnController spawnController;
+    private SpawnController _spawnController;
+    private SpawnController spawnController
+    {
+        get
+        {
+            if (_spawnController == null) _spawnController = FindAnyObjectByType<SpawnController>();
+            return _spawnController;
+        }
+    }
+
     List<SpawnPoint> randomizedSpawnPoints;
-    List<EnemyData> randomizedEnemyDatas;
+    List<Sprite> randomizedEnemySprites;
 
     private bool[] targetsCaught = new bool[3];
 
     void Start()
     {
-        spawnController = GetComponent<SpawnController>();
         randomizedSpawnPoints = RandomizeList(spawnController.GetSpawnPoints());
-        randomizedEnemyDatas = RandomizeList(spawnController.GetEnemies());
-        spawnController.SpawnEnemies(randomizedSpawnPoints, randomizedEnemyDatas);
-        hudController.SetTargetSprite(randomizedEnemyDatas[0].sprite, 0);
-        hudController.SetTargetSprite(randomizedEnemyDatas[1].sprite, 1);
-        hudController.SetTargetSprite(randomizedEnemyDatas[2].sprite, 2);
+        randomizedEnemySprites = RandomizeList(spawnController.GetEnemySprites());
+        spawnController.SpawnEnemies(randomizedSpawnPoints, randomizedEnemySprites);
+        hudController.SetTargetSprite(randomizedEnemySprites[0], 0);
+        hudController.SetTargetSprite(randomizedEnemySprites[1], 1);
+        hudController.SetTargetSprite(randomizedEnemySprites[2], 2);
     }
 
     List<T> RandomizeList<T>(List<T> list)
