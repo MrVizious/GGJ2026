@@ -948,7 +948,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 38.4, y: 21.6, z: 1}
+  m_LocalScale: {x: 38.4, y: 38.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1449,7 +1449,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: 5b62158c-e160-4208-b36e-8bfc42311c10
-    m_ActionName: Keyboard 1/Move P1[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+    m_ActionName: 'Keyboard 1/Move P1[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1065870793}
@@ -1465,15 +1465,15 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: fe9de95e-3a0d-4e3c-a841-7aa5db47f52e
-    m_ActionName: Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]
+    m_ActionName: 'Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 091ad2c3-76df-44db-b729-5c0460f61ece
-    m_ActionName: Keyboard 1/Interact P1[/Keyboard/escape]
+    m_ActionName: 'Keyboard 1/Interact P1[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: dfe998b0-fa70-4dc0-8084-f2149b40be98
-    m_ActionName: Keyboard 1/Interact P2[/Keyboard/enter]
+    m_ActionName: 'Keyboard 1/Interact P2[/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: ea698e52-f087-4f55-96db-1f2886a7a5b6
@@ -1812,15 +1812,15 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 5c2c2a8f66f4e244390f05bcf579ab77, type: 3}
     - target: {fileID: 5836360973854606439, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5836360973854606439, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5836360973854606439, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6045045794974774832, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_Name
@@ -2103,11 +2103,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2468105493669661445, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
-      value: Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]
+      value: 'Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]'
       objectReference: {fileID: 0}
     - target: {fileID: 2468105493669661445, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_ActionEvents.Array.data[5].m_ActionName
-      value: Keyboard 1/Interact P2[/Keyboard/enter]
+      value: 'Keyboard 1/Interact P2[/Keyboard/enter]'
       objectReference: {fileID: 0}
     - target: {fileID: 2752435103676690407, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2205,6 +2205,10 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.width
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9128467154930845228, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fbd20cb4dd3ee724dbef8d8c450727b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2314,7 +2318,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 19.2, y: 10.8, z: 1}
+  m_LocalScale: {x: 19.2, y: 19.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 891110877}
