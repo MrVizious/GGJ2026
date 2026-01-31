@@ -347,6 +347,7 @@ GameObject:
   - component: {fileID: 6116073541923276650}
   - component: {fileID: 8896116049187091698}
   - component: {fileID: 2939471778925614784}
+  - component: {fileID: 6224562632645907046}
   m_Layer: 0
   m_Name: Physics
   m_TagString: Untagged
@@ -411,3 +412,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 12
+--- !u!114 &6224562632645907046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8763847408087898344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172690f0ca4ce0849b892539c77a42cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
+  moveSpeed: 5

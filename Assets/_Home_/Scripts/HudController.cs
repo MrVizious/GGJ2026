@@ -42,4 +42,38 @@ public class HudController : MonoBehaviour
     {
         
     }
+
+    public void SetTargetSprite(Sprite imageTarget, int numTarget)
+    {
+        switch (numTarget)
+        {
+            case 0:
+                searchImageSeal_1.GetComponent<Image>().sprite = imageTarget;
+                break;
+            case 1:
+                searchImageSeal_2.GetComponent<Image>().sprite = imageTarget;
+                break;
+            case 2:
+                searchImageSeal_3.GetComponent<Image>().sprite = imageTarget;
+                break;
+        }
+    }
+
+    public void TargetCaught(Sprite imageTarget, int numTarget){
+        switch (numTarget)
+        {
+            case 0:
+                searchImageSeal_1.GetComponent<Image>().sprite = imageTarget;
+                searchImageSeal_1.enabled = true;
+                break;
+            case 1:
+                searchImageSeal_2.GetComponent<Image>().sprite = imageTarget;
+                searchImageSeal_2.enabled = true;
+                break;
+            case 2:
+                searchImageSeal_3.GetComponent<Image>().sprite = imageTarget;
+                searchImageSeal_3.enabled = true;
+                break;
+        }
+    }
 }
