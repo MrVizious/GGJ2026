@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Range(0f, 20f)]
     public float moveSpeed = 5f;
 
     private Rigidbody2D _rb;
@@ -15,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
             return _rb;
         }
     }
-    private Vector2 movementVector;
+
+    private Vector2 movementVector = Vector2.zero;
 
     public void SetMovementVector(InputAction.CallbackContext context)
     {
@@ -24,9 +26,13 @@ public class PlayerMovement : MonoBehaviour
         movementVector = newMovementVector;
     }
 
+    public void Interact(InputAction.CallbackContext context)
+    {
+
+    }
+
     void FixedUpdate()
     {
-        // Move the player
         rb.MovePosition(rb.position + movementVector.normalized * moveSpeed * Time.fixedDeltaTime);
     }
 }
