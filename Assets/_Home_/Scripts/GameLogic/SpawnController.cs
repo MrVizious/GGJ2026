@@ -3,9 +3,16 @@ using System.Collections.Generic;
 
 public class SpawnController : MonoBehaviour
 {
-    [SerializeField]
-    public List<SpawnPoint> spawnPoints;
-    
+    private List<SpawnPoint> _spawnPoints;
+    private List<SpawnPoint> spawnPoints
+    {
+        get
+        {
+            if (_spawnPoints == null) _spawnPoints = new List<SpawnPoint>(FindObjectsByType(typeof(SpawnPoint), FindObjectsInactive.Include, FindObjectsSortMode.None) as SpawnPoint[]);
+            return _spawnPoints;
+        }
+    }
+
     [SerializeField]
     public List<EnemyData> enemies;
 
@@ -21,7 +28,7 @@ public class SpawnController : MonoBehaviour
             randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemyDatas[i]);
         }
     }
-    
+
     public List<SpawnPoint> GetSpawnPoints() => spawnPoints;
     public List<EnemyData> GetEnemies() => enemies;
 }

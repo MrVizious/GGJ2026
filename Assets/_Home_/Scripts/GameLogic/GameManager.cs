@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Sprite playerLeftCaught;
     [SerializeField] private Sprite playerRightCaught;
-    
+
     SpawnController spawnController;
     List<SpawnPoint> randomizedSpawnPoints;
     List<EnemyData> randomizedEnemyDatas;
-    
+
     private bool[] targetsCaught = new bool[3];
-    
+
     void Start()
     {
         spawnController = GetComponent<SpawnController>();
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         hudController.SetTargetSprite(randomizedEnemyDatas[1].sprite, 1);
         hudController.SetTargetSprite(randomizedEnemyDatas[2].sprite, 2);
     }
-    
+
     List<T> RandomizeList<T>(List<T> list)
     {
         List<T> randomized = new List<T>(list);

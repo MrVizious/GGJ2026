@@ -14,7 +14,7 @@ public class SpawnPoint : MonoBehaviour
         new_enemy.SetEnemyData(enemyData);
         return new_enemy;
     }
-    
+
     public EnemyController SpawnFriend(EnemyData enemyData, int idx)
     {
         EnemyController new_enemy = Instantiate(friendPrefab, transform.position, Quaternion.identity);
