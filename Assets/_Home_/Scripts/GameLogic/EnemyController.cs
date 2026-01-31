@@ -42,16 +42,26 @@ public class EnemyController : MonoBehaviour
         {
             // Wait
             await WaitForRandomTime();
-
             // Move
             Vector2 targetPosition = ChooseNextTargetPosition();
             CancellationTokenSource cts = new CancellationTokenSource();
-            CancellationToken token = cts.Token;
-            UniTask moveTask = MoveToTargetPosition(targetPosition, Random.Range(0.9f, maxSpeed)).AttachExternalCancellation(token);
-            UniTask maxTimeTask = UniTask.WaitForSeconds(4f).AttachExternalCancellation(token);
-            await UniTask.WhenAny(moveTask, maxTimeTask);
-            cts.Cancel();
-            cts.Dispose();
+
+            try
+            {
+                UniTask moveTask = MoveToTargetPosition(targetPosition, Random.Range(0.9f, maxSpeed), cts.Token);
+                UniTask maxTimeTask = UniTask.WaitForSeconds(4f, cancellationToken: cts.Token);
+
+                await UniTask.WhenAny(moveTask, maxTimeTask);
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Expected when we cancel, just continue to next iteration
+            }
+            finally
+            {
+                cts.Cancel();
+                cts.Dispose();
+            }
         }
     }
 
@@ -64,7 +74,12 @@ public class EnemyController : MonoBehaviour
 
     private Vector2 ChooseNextTargetPosition()
     {
-        return GetValidPointInDirection(Random.insideUnitCircle, Random.Range(0.5f, maxDistanceToRoam));
+        Vector2 returnValue = new Vector2(-1, -1);
+        while (returnValue == new Vector2(-1, -1))
+        {
+            returnValue = GetValidPointInDirection(Random.insideUnitCircle, Random.Range(0.5f, maxDistanceToRoam));
+        }
+        return returnValue;
     }
 
     private Vector2 GetValidPointInDirection(Vector2 direction, float distance)
@@ -76,22 +91,23 @@ public class EnemyController : MonoBehaviour
             {
                 continue;
             }
-            distance = Mathf.Min(Mathf.Abs(hit.point.y - transform.position.y), distance);
-            break;
+            return new Vector2(-1, -1); // Invalid point,
         }
         distance = Mathf.Max(0, distance - 0.9f);
         return transform.position + (Vector3)direction * distance;
     }
 
-    private async UniTask MoveToTargetPosition(Vector2 targetPosition, float speed)
+    private async UniTask MoveToTargetPosition(Vector2 targetPosition, float speed, CancellationToken token)
     {
         name = "Moving";
         while (Vector2.Distance(transform.position, targetPosition) > 0.1f)
         {
+            token.ThrowIfCancellationRequested();
+
             Vector2 stepPosition = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.fixedDeltaTime);
             Debug.DrawLine(transform.position, targetPosition, Color.red);
             rb.MovePosition(stepPosition);
-            await UniTask.WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate(token);
         }
         rb.MovePosition(targetPosition);
     }
