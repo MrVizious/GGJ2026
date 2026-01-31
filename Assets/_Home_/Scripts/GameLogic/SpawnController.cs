@@ -18,6 +18,7 @@ public class SpawnController : MonoBehaviour
 
     public void SpawnEnemies(List<SpawnPoint> randomizedSpawnPoints, List<Sprite> randomizedEnemySprites)
     {
+        Debug.Log($"Randomized spawn points size: {randomizedSpawnPoints.Count}, randomized snemy sprites size: {randomizedEnemySprites.Count}", this);
         for (int i = 0; i < 3; i++)
         {
             randomizedSpawnPoints[i].SpawnFriend(randomizedEnemySprites[i], i);

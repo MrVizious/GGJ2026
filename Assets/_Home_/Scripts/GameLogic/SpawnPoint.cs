@@ -18,6 +18,7 @@ public class SpawnPoint : MonoBehaviour
     public EnemyController SpawnFriend(Sprite enemySprite, int idx)
     {
         EnemyController new_enemy = Instantiate(friendPrefab, transform.position, Quaternion.identity);
+        new_enemy.tag = "Friend";
         new_enemy.SetEnemySprite(enemySprite);
         new_enemy.GetComponent<Target>().setIndex(idx);
         return new_enemy;

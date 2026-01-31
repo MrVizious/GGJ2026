@@ -25,10 +25,6 @@ public class PlayerMovement : MonoBehaviour
         movementVector = newMovementVector;
     }
 
-    public void Interact(InputAction.CallbackContext context)
-    {
-
-    }
 
     void FixedUpdate()
     {

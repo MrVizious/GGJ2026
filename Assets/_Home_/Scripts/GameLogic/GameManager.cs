@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     List<SpawnPoint> randomizedSpawnPoints;
     List<Sprite> randomizedEnemySprites;
 
-    private bool[] targetsCaught = new bool[3];
+    private bool[] targetsCaught = new bool[] { false, false, false };
 
     void Start()
     {
@@ -51,9 +51,13 @@ public class GameManager : MonoBehaviour
 
     public void InteractWithTarget(int targetIdx, int playerIdx)
     {
+        Debug.Log($"Player {playerIdx} is trying to catch {targetIdx}", this);
         targetsCaught[targetIdx] = true;
+        Debug.Log($"{targetsCaught}", this);
         Sprite caughtSprite = playerIdx == 0 ? playerLeftCaught : playerRightCaught;
         hudController.TargetCaught(caughtSprite, targetIdx);
+
+
         foreach (bool caught in targetsCaught)
         {
             if (caught == false)
