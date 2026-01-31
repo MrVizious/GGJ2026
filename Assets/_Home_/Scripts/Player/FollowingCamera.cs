@@ -7,7 +7,7 @@ public class FollowingCamera : MonoBehaviour
     Transform target;
     private Vector2 targetPosition => (Vector2)target.position;
 
-    public float maxTimeToReach = 1f;
+    public float maxTimeToReach = .15f;
     public float defaultSpeed = 10f;
 
     void FixedUpdate()

@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FollowingCamera
   target: {fileID: 6116073541923276650}
-  maxTimeToReach: 0.12
+  maxTimeToReach: 0.15
   defaultSpeed: 0.1
 --- !u!1 &5772996684932444723
 GameObject:
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af30b4886c957cf43b8b5aa98bb90669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
+  moveSpeed: 12
 --- !u!114 &1402663441985089642
 MonoBehaviour:
   m_ObjectHideFlags: 0
