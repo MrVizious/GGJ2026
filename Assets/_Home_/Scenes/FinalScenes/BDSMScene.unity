@@ -1830,6 +1830,10 @@ PrefabInstance:
       propertyPath: playerIdx
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9128467154930845228, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: fbd20cb4dd3ee724dbef8d8c450727b7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2208,7 +2212,7 @@ PrefabInstance:
     - target: {fileID: 9128467154930845228, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: fbd20cb4dd3ee724dbef8d8c450727b7, type: 2}
+      objectReference: {fileID: 9100000, guid: 88e35e904683aef4596d9aa161045c6a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -17,7 +17,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private Animator animator;
+
     private Vector2 movementVector = Vector2.zero;
+
+    public void Start()
+    {
+        animator = GetComponentInChildren<Animator>();
+    }
 
     public void SetMovementVector(InputAction.CallbackContext context)
     {
@@ -29,5 +36,23 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movementVector.normalized * moveSpeed * Time.fixedDeltaTime);
+
+        // Update isWalking animator parameter
+        bool isMoving = movementVector.sqrMagnitude > 0.01f;
+        Debug.Log($"Is moving: {isMoving}, animator: {animator}, movement vector: {movementVector}");
+        if (animator != null)
+        {
+            animator.SetBool("isWalking", isMoving);
+        }
+
+        // Flip character based on horizontal movement
+        if (movementVector.x > 0.01f)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+        else if (movementVector.x < -0.01f)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
     }
 }

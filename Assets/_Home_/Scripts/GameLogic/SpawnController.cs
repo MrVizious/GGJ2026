@@ -24,9 +24,15 @@ public class SpawnController : MonoBehaviour
             randomizedSpawnPoints[i].SpawnFriend(randomizedEnemySprites[i], i);
         }
 
+        int j = 3;
         for (int i = 3; i < randomizedSpawnPoints.Count; i++)
         {
-            randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemySprites[i]);
+            randomizedSpawnPoints[i].SpawnEnemy(randomizedEnemySprites[j]);
+            j++;
+            if (j >= randomizedEnemySprites.Count)
+            {
+                j = 3;
+            }
         }
     }
 

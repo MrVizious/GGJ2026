@@ -65,6 +65,6 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        SceneManager.LoadScene("EndScene");
+        SceneManager.LoadScene("CreditsMenu");
     }
 }
