@@ -121,7 +121,7 @@ MonoBehaviour:
   maxSpeed: 4
   obstacleLayerMask:
     serializedVersion: 2
-    m_Bits: 136
+    m_Bits: 128
 --- !u!212 &8089814348119458846
 SpriteRenderer:
   serializedVersion: 2
