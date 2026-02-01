@@ -5,42 +5,32 @@ using UnityEngine.UI;
 
 public class HudController : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField]
     Image catchPj1_bg;
-    [SerializeField] 
-    Image catchPj2_bg;
-    [SerializeField] 
+    [SerializeField]
     Image catchPj1;
-    [SerializeField] 
-    Image catchPj2;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageChar_1;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageBg_1;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageSeal_1;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageChar_2;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageBg_2;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageSeal_2;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageChar_3;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageBg_3;
-    [SerializeField] 
+    [SerializeField]
     Image searchImageSeal_3;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateCatchCooldown(float percentage)
     {
-        
+        catchPj1.fillAmount = percentage;
     }
 
     public void SetTargetSprite(Sprite imageTarget, int numTarget)
@@ -59,7 +49,8 @@ public class HudController : MonoBehaviour
         }
     }
 
-    public void TargetCaught(Sprite imageTarget, int numTarget){
+    public void TargetCaught(Sprite imageTarget, int numTarget)
+    {
         switch (numTarget)
         {
             case 0:
