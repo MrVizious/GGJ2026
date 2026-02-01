@@ -3,11 +3,17 @@ using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Cysharp.Threading.Tasks.CompilerServices;
 using UnityEngine;
+using PrimeTween;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class EnemyController : MonoBehaviour
 {
+    static float minScale = 0.97f;
+    static float maxScale = 1.03f;
+    static float duration = 0.2f;
+    Tween scaleTween;
+    Vector3 originalScale = Vector3.one;
     public float maxDistanceToRoam = 7f;
     public float maxSpeed = 4f;
     public LayerMask obstacleLayerMask = ~0;
@@ -67,6 +73,7 @@ public class EnemyController : MonoBehaviour
     private async UniTask WaitForRandomTime()
     {
         name = "Waiting";
+        StopAndReset();
         float waitTime = Random.Range(0.3f, 2f);
         await UniTask.WaitForSeconds(waitTime);
     }
@@ -99,6 +106,7 @@ public class EnemyController : MonoBehaviour
     private async UniTask MoveToTargetPosition(Vector2 targetPosition, float speed, CancellationToken token)
     {
         name = "Moving";
+        StartAnimation();
         while (Vector2.Distance(transform.position, targetPosition) > 0.1f)
         {
             token.ThrowIfCancellationRequested();
@@ -115,5 +123,27 @@ public class EnemyController : MonoBehaviour
     {
         spriteRenderer.sprite = sprite;
     }
+    public void StartAnimation()
+    {
+        // Stop existing tween if running
+        scaleTween.Stop();
+
+        // Start from min scale
+        transform.localScale = originalScale * minScale;
+
+        scaleTween = Tween.Scale(
+            transform,
+            originalScale * maxScale,
+            duration,
+            cycles: -1,
+            cycleMode: CycleMode.Yoyo);
+    }
+
+    public void StopAndReset()
+    {
+        scaleTween.Stop();
+        transform.localScale = originalScale;
+    }
+
 
 }
