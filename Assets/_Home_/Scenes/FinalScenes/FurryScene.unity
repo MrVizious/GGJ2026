@@ -2197,6 +2197,18 @@ PrefabInstance:
       propertyPath: playerIdx
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9128467154930845228, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -8196,6 +8208,18 @@ PrefabInstance:
     - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_TargetTexture
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8041167365812588487, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
