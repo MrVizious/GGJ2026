@@ -13087,7 +13087,19 @@ MonoBehaviour:
     m_ActionId: fe9de95e-3a0d-4e3c-a841-7aa5db47f52e
     m_ActionName: 'Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 128423458}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CatchPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 091ad2c3-76df-44db-b729-5c0460f61ece
     m_ActionName: 'Keyboard 1/Interact P1[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0

@@ -25,6 +25,7 @@ public class PlayerManager : MonoBehaviour
     public void AddEnemyToEnemiesInRange(int enemyIndex)
     {
         targetsInRange.Add(enemyIndex);
+        Debug.Log($"Adding index {enemyIndex}", this);
     }
 
     void OnTriggerExit2D(Collider2D other)

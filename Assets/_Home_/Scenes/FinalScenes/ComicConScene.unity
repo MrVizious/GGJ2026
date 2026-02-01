@@ -6363,17 +6363,6 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
---- !u!114 &1148379553 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6224562632645907046, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
-  m_PrefabInstance: {fileID: 960508946}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172690f0ca4ce0849b892539c77a42cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
 --- !u!1 &1150809213
 GameObject:
   m_ObjectHideFlags: 0
@@ -10553,21 +10542,9 @@ MonoBehaviour:
     m_ActionName: 'Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1889890400}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: Interact
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1148379553}
-        m_TargetAssemblyTypeName: PlayerManager, Assembly-CSharp
-        m_MethodName: Interact
+      - m_Target: {fileID: 117459144}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CatchPressed
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11410,17 +11387,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4545002386257728809, guid: 5c915541b203b5645b5f71281007c0d3, type: 3}
   m_PrefabInstance: {fileID: 1347900949}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1889890400 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6224562632645907046, guid: f71a0d82d35e0f140bacd41dc0096f4b, type: 3}
-  m_PrefabInstance: {fileID: 1088907967}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172690f0ca4ce0849b892539c77a42cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerManager
 --- !u!1 &1901497107
 GameObject:
   m_ObjectHideFlags: 0

@@ -7474,21 +7474,21 @@ MonoBehaviour:
     m_ActionId: fe9de95e-3a0d-4e3c-a841-7aa5db47f52e
     m_ActionName: 'Keyboard 1/Move P2[/Keyboard/i,/Keyboard/k,/Keyboard/j,/Keyboard/l]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 306854053}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: CatchPressed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 091ad2c3-76df-44db-b729-5c0460f61ece
     m_ActionName: 'Keyboard 1/Interact P1[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: dfe998b0-fa70-4dc0-8084-f2149b40be98
-    m_ActionName: 'Keyboard 1/Interact P2[/Keyboard/enter]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ea698e52-f087-4f55-96db-1f2886a7a5b6
-    m_ActionName: Controller/Move
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 838860c8-c45d-4507-9c2a-dfa1b5c725f8
-    m_ActionName: Controller/Interact
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Keyboard
