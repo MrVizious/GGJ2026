@@ -6,7 +6,7 @@ public class SoundController : MonoBehaviour
 {
     [SerializeField] AudioSource audioSource;
 
-    [SerializeField] List<AudioClip> sfxList;
+    [SerializeField] List<AudioClip> sfxList = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

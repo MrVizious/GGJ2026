@@ -38,13 +38,13 @@ public class HudController : MonoBehaviour
         switch (numTarget)
         {
             case 0:
-                searchImageSeal_1.GetComponent<Image>().sprite = imageTarget;
+                searchImageChar_1.GetComponent<Image>().sprite = imageTarget;
                 break;
             case 1:
-                searchImageSeal_2.GetComponent<Image>().sprite = imageTarget;
+                searchImageChar_2.GetComponent<Image>().sprite = imageTarget;
                 break;
             case 2:
-                searchImageSeal_3.GetComponent<Image>().sprite = imageTarget;
+                searchImageChar_3.GetComponent<Image>().sprite = imageTarget;
                 break;
         }
     }
