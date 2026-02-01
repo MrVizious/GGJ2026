@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +29,16 @@ public class GameManager : MonoBehaviour
 
     List<SpawnPoint> randomizedSpawnPoints;
     List<Sprite> randomizedEnemySprites;
+
+    private List<PlayerManager> _players;
+    private List<PlayerManager> players
+    {
+        get
+        {
+            if (_players == null) _players = new List<PlayerManager>(FindObjectsByType<PlayerManager>(FindObjectsSortMode.None) as PlayerManager[]);
+            return _players;
+        }
+    }
 
     private bool[] targetsCaught = new bool[] { false, false, false };
 
@@ -71,12 +83,31 @@ public class GameManager : MonoBehaviour
             hudController.UpdateCatchCooldown(catchCooldownPercentage);
         }
     }
+
+    public void CatchPressed(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!TryCatch())
+            {
+                return;
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                foreach (int friendIndexInRange in players[i].targetsInRange)
+                {
+                    InteractWithTarget(friendIndexInRange, i);
+                }
+            }
+        }
+    }
+
     public void InteractWithTarget(int targetIdx, int playerIdx)
     {
+
         targetsCaught[targetIdx] = true;
         Sprite caughtSprite = playerIdx == 0 ? playerLeftCaught : playerRightCaught;
         hudController.TargetCaught(caughtSprite, targetIdx);
-
 
         foreach (bool caught in targetsCaught)
         {
