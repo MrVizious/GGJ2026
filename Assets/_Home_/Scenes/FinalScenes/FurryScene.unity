@@ -797,8 +797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   hudController: {fileID: 780512538}
-  playerLeftCaught: {fileID: 21300000, guid: 35ca0bc26ba194748bcd9a2e43949352, type: 3}
-  playerRightCaught: {fileID: 21300000, guid: 53d06276d54e48c47801e0e26385a693, type: 3}
+  playerLeftCaught: {fileID: 21300000, guid: 53d06276d54e48c47801e0e26385a693, type: 3}
+  playerRightCaught: {fileID: 21300000, guid: 35ca0bc26ba194748bcd9a2e43949352, type: 3}
   secondsOfCatchCooldown: 2
 --- !u!4 &128423459
 Transform:
