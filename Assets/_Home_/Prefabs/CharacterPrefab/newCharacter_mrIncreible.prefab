@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2046084734936019970}
   - component: {fileID: 3649645575166143450}
   m_Layer: 0
-  m_Name: newCharacter
+  m_Name: newCharacter_mrIncreible
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 6439502335974174497}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fbd20cb4dd3ee724dbef8d8c450727b7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1313622ca2457a94cbcc0cec189468a2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

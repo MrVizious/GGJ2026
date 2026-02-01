@@ -1,3 +1,4 @@
+using ExtensionMethods;
 using UnityEngine;
 
 public class MainMenuEnemy : MonoBehaviour
@@ -8,6 +9,9 @@ public class MainMenuEnemy : MonoBehaviour
     
     void Start()
     {
+        GetComponent<Animator>().SetBool("isWalking", true);
+        if(goesLeft)
+            transform.localScale = transform.localScale.WithX(-transform.localScale.x);
         Destroy(gameObject, 10f);
     }
 
