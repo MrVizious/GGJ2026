@@ -19,4 +19,14 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(numScene);    
     }
+
+     public void ChangeWinLeftScene()
+    {
+        SceneManager.LoadScene(6);    
+    }
+
+    public void ChangeWinRightScene()
+    {
+        SceneManager.LoadScene(7);    
+    }
 }
