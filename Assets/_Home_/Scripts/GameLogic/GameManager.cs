@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour
         targetsCaught[targetIdx] = true;
         Sprite caughtSprite = playerIdx == 0 ? playerLeftCaught : playerRightCaught;
         hudController.TargetCaught(caughtSprite, targetIdx);
+        spawnController.DespawnFriend(targetIdx);
 
         foreach (bool caught in targetsCaught)
         {
