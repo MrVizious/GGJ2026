@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class MainMenuSpawner : MonoBehaviour
 {
     public bool isLeft;
-    public MainMenuEnemy mainMenuEnemy;
-    public List<AnimatorOverrideController> animations = new();
+    public List<MainMenuEnemy> mainMenuEnemies = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,11 +14,8 @@ public class MainMenuSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        
-        MainMenuEnemy newEnemy  = Instantiate(mainMenuEnemy, transform);
-        mainMenuEnemy.goesLeft = !isLeft;
-        mainMenuEnemy.GetComponent<Animator>().runtimeAnimatorController = animations[Random.Range(0 , animations.Count)];
-        mainMenuEnemy.GetComponent<Animator>().SetBool("isWalking", true);
+        MainMenuEnemy newEnemy  = Instantiate(mainMenuEnemies[Random.Range(0 , mainMenuEnemies.Count)], transform);
+        newEnemy.goesLeft = !isLeft;
     }
 
     private async UniTask Loop()
