@@ -52,7 +52,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void InteractWithTargets()
     {
-        Debug.Log($"Attempting to catch friends. Targets in range: {targetsInRange}", this);
+        if (!gameManager.TryCatch()) return;
         foreach (int idx in targetsInRange)
         {
             gameManager.InteractWithTarget(idx, playerIdx);

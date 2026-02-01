@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Update isWalking animator parameter
         bool isMoving = movementVector.sqrMagnitude > 0.01f;
-        Debug.Log($"Is moving: {isMoving}, animator: {animator}, movement vector: {movementVector}");
         if (animator != null)
         {
             animator.SetBool("isWalking", isMoving);

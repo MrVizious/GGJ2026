@@ -10,6 +10,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Sprite playerLeftCaught;
     [SerializeField] private Sprite playerRightCaught;
 
+    [Range(0.1f, 10.0f)]
+    public float secondsOfCatchCooldown = 2.0f;
+    private float secondsSinceLastCatch = 0.0f;
+    public float catchCooldownPercentage => Mathf.Clamp01(secondsSinceLastCatch / secondsOfCatchCooldown);
+
     private SpawnController _spawnController;
     private SpawnController spawnController
     {
@@ -33,6 +38,9 @@ public class GameManager : MonoBehaviour
         hudController.SetTargetSprite(randomizedEnemySprites[0], 0);
         hudController.SetTargetSprite(randomizedEnemySprites[1], 1);
         hudController.SetTargetSprite(randomizedEnemySprites[2], 2);
+
+        // Reset catch cooldown
+        secondsSinceLastCatch = secondsOfCatchCooldown;
     }
 
     List<T> RandomizeList<T>(List<T> list)
@@ -49,11 +57,23 @@ public class GameManager : MonoBehaviour
         return randomized;
     }
 
+    void Update()
+    {
+        UpdateCooldownTimer();
+    }
+
+    private void UpdateCooldownTimer()
+    {
+        if (secondsSinceLastCatch < secondsOfCatchCooldown)
+        {
+            secondsSinceLastCatch += Time.deltaTime;
+            secondsSinceLastCatch = Mathf.Min(secondsSinceLastCatch, secondsOfCatchCooldown);
+            hudController.UpdateCatchCooldown(catchCooldownPercentage);
+        }
+    }
     public void InteractWithTarget(int targetIdx, int playerIdx)
     {
-        Debug.Log($"Player {playerIdx} is trying to catch {targetIdx}", this);
         targetsCaught[targetIdx] = true;
-        Debug.Log($"{targetsCaught}", this);
         Sprite caughtSprite = playerIdx == 0 ? playerLeftCaught : playerRightCaught;
         hudController.TargetCaught(caughtSprite, targetIdx);
 
@@ -66,5 +86,16 @@ public class GameManager : MonoBehaviour
             }
         }
         SceneManager.LoadScene("CreditsMenu");
+    }
+    public bool TryCatch()
+    {
+        if (secondsSinceLastCatch >= secondsOfCatchCooldown)
+        {
+            // Reset catch cooldown
+            secondsSinceLastCatch = 0.0f;
+            hudController.UpdateCatchCooldown(catchCooldownPercentage);
+            return true;
+        }
+        return false;
     }
 }
