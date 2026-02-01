@@ -117,7 +117,15 @@ public class GameManager : MonoBehaviour
                 return;
             }
         }
-        SceneManager.LoadScene("CreditsMenu");
+        Debug.Log($"Game is finished", this);
+        if (targetIdx == 0)
+        {
+            SceneManager.LoadScene("WinLeftScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("WinRightScene");
+        }
     }
     public bool TryCatch()
     {
