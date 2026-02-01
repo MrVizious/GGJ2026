@@ -12,16 +12,21 @@ public class SpawnController : MonoBehaviour
             return _spawnPoints;
         }
     }
+    private List<EnemyController> spawnedFriends = new List<EnemyController>();
 
     [SerializeField]
     public List<Sprite> enemySprites;
 
+    public void DespawnFriend(int friendIndex)
+    {
+        spawnedFriends[friendIndex].gameObject.SetActive(false);
+    }
     public void SpawnEnemies(List<SpawnPoint> randomizedSpawnPoints, List<Sprite> randomizedEnemySprites)
     {
         Debug.Log($"Randomized spawn points size: {randomizedSpawnPoints.Count}, randomized snemy sprites size: {randomizedEnemySprites.Count}", this);
         for (int i = 0; i < 3; i++)
         {
-            randomizedSpawnPoints[i].SpawnFriend(randomizedEnemySprites[i], i);
+            spawnedFriends.Add(randomizedSpawnPoints[i].SpawnFriend(randomizedEnemySprites[i], i));
         }
 
         int j = 3;
