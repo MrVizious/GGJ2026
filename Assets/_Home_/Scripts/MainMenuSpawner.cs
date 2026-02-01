@@ -1,5 +1,4 @@
 using Cysharp.Threading.Tasks;
-using UnityEditor.Animations;
 using UnityEngine;
 using System.Collections.Generic;
 
@@ -7,7 +6,7 @@ public class MainMenuSpawner : MonoBehaviour
 {
     public bool isLeft;
     public MainMenuEnemy mainMenuEnemy;
-    public List<AnimatorController> animations = new();
+    public List<AnimatorOverrideController> animations = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
