@@ -8,9 +8,12 @@ using UnityEngine.InputSystem;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private HudController hudController;
-
+    [SerializeField] private SoundController soundController;
     [SerializeField] private Sprite playerLeftCaught;
     [SerializeField] private Sprite playerRightCaught;
+
+    [SerializeField] private int friendsLeftCaught;
+    [SerializeField] private int friendsRightCaught;
 
     [Range(0.1f, 10.0f)]
     public float secondsOfCatchCooldown = 2.0f;
@@ -36,6 +39,7 @@ public class GameManager : MonoBehaviour
         get
         {
             if (_players == null) _players = new List<PlayerManager>(FindObjectsByType<PlayerManager>(FindObjectsSortMode.None) as PlayerManager[]);
+            _players.Sort(compareByObjectName);
             return _players;
         }
     }
@@ -51,6 +55,7 @@ public class GameManager : MonoBehaviour
         hudController.SetTargetSprite(randomizedEnemySprites[1], 1);
         hudController.SetTargetSprite(randomizedEnemySprites[2], 2);
 
+        soundController.reproduceSfxClip(14);
         // Reset catch cooldown
         secondsSinceLastCatch = secondsOfCatchCooldown;
     }
@@ -88,28 +93,45 @@ public class GameManager : MonoBehaviour
     {
         if (context.performed)
         {
+            
             if (!TryCatch())
             {
+                soundController.reproduceSfxClip(6);
                 return;
             }
             for (int i = 0; i < 2; i++)
             {
                 foreach (int friendIndexInRange in players[i].targetsInRange)
                 {
-                    InteractWithTarget(friendIndexInRange, i);
+                    Debug.Log("Targets in range: "+ i);
+                    InteractWithTarget(friendIndexInRange, players[i].getPlayerIndex());
                 }
             }
         }
+        
     }
 
     public void InteractWithTarget(int targetIdx, int playerIdx)
     {
-
+        soundController.reproduceSfxClip(2);
         targetsCaught[targetIdx] = true;
-        Sprite caughtSprite = playerIdx == 0 ? playerLeftCaught : playerRightCaught;
+        Debug.Log("Player index:" + playerIdx);
+        Sprite caughtSprite = playerIdx == 1 ? playerLeftCaught : playerRightCaught;
         hudController.TargetCaught(caughtSprite, targetIdx);
         spawnController.DespawnFriend(targetIdx);
 
+        switch (playerIdx)
+        {
+            case 1:
+            friendsLeftCaught++;
+            break;
+            case 2:
+            friendsRightCaught++;
+            break;
+            default:
+            friendsLeftCaught++;
+            break;
+        }
         foreach (bool caught in targetsCaught)
         {
             if (caught == false)
@@ -118,7 +140,7 @@ public class GameManager : MonoBehaviour
             }
         }
         Debug.Log($"Game is finished", this);
-        if (targetIdx == 0)
+         if(friendsLeftCaught > friendsRightCaught)
         {
             SceneManager.LoadScene("WinLeftScene");
         }
@@ -137,5 +159,18 @@ public class GameManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private static int compareByObjectName(PlayerManager playerA, PlayerManager playerB)
+    {
+        if(playerA.getPlayerIndex() > playerB.getPlayerIndex())
+        {
+            return 1;
+        }
+        else
+        {
+            return -1;
+        }
+            
     }
 }

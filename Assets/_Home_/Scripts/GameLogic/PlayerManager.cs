@@ -37,4 +37,8 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public int getPlayerIndex()
+    {
+        return playerIdx;
+    }
 }
